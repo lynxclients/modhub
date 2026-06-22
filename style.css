@@ -146,6 +146,8 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    grid-auto-rows: 1fr; /* ensure rows are equal height so cards align */
+    align-items: stretch;
 }
 
 @media (max-width: 1024px) {
@@ -172,6 +174,8 @@ body {
     position: relative;
     overflow: hidden;
     height: 100%; /* ensure all cards stretch to same height so footer aligns */
+    min-height: 480px; /* stronger guarantee so all cards visually match */
+    padding-bottom: 110px; /* leave space for absolutely positioned footer */
 }
 
 .card:hover {
@@ -201,17 +205,17 @@ body {
     margin-bottom: 18px;
 }
 
-/* Status styles for product cards (green) */
-.card .status-dot {
+/* Force status styles for product cards (important to override cached/other rules) */
+.grid .card .status-dot {
     width: 8px;
     height: 8px;
-    background: var(--status-green);
+    background: var(--status-green) !important;
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--status-green);
+    box-shadow: 0 0 10px var(--status-green) !important;
 }
 
-.card .status-text {
-    color: var(--status-green);
+.grid .card .status-text {
+    color: var(--status-green) !important;
     font-weight: 800;
     font-size: 0.85rem;
     letter-spacing: 1.5px;
@@ -275,13 +279,18 @@ body {
     color: #cfe6ff;
 }
 
+/* Absolutely position the footer to guarantee alignment */
 .card-footer {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
-    padding-top: 25px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.06);
+    padding-top: 0;
+    border-top: none;
+    min-height: 56px; /* consistent footer area */
 }
 
 .price-label {
