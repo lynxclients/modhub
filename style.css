@@ -171,6 +171,7 @@ body {
     flex-direction: column;
     position: relative;
     overflow: hidden;
+    height: 100%; /* ensure all cards stretch to same height so footer aligns */
 }
 
 .card:hover {
@@ -200,7 +201,8 @@ body {
     margin-bottom: 18px;
 }
 
-.status-dot {
+/* Status styles for product cards (green) */
+.card .status-dot {
     width: 8px;
     height: 8px;
     background: var(--status-green);
@@ -208,7 +210,7 @@ body {
     box-shadow: 0 0 10px var(--status-green);
 }
 
-.status-text {
+.card .status-text {
     color: var(--status-green);
     font-weight: 800;
     font-size: 0.85rem;
@@ -395,9 +397,10 @@ body {
     object-fit: cover;
 }
 
+/* Status badge on the detail page (keep neutral, not green) */
 .status-badge {
-    background: rgba(96, 165, 250, 0.08);
-    color: var(--status-green);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-main);
     padding: 6px 16px;
     border-radius: 50px;
     font-size: 0.75rem;
