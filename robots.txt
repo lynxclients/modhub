@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://donutsmp-mods.github.io/sitemap.xml
