@@ -161,7 +161,7 @@
 
         let targetScroll = window.scrollY;
         let isAnimating = false;
-        const ease = 0.09; // easing factor (0.02 - 0.2)
+        const ease = 0.04; // easing factor - lower = slower, smoother scroll (0.02 - 0.2)
         const maxDelta = 3000; // safety cap for very large deltas
 
         function clampTarget(y){
