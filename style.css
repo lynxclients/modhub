@@ -19,7 +19,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-snap-type: y proximity; /* Enables magnetic scroll snapping */
     scroll-padding-top: 100px; /* account for fixed navbar when linking to anchors */
 }
